@@ -3,7 +3,6 @@ const todoReducer = (state, action) => {
         case"ADD":return[...state,action.payload];
         case"DELETE" :
         return state.filter((item)=>{
-            console.log(action.payload);
             if(item.id!=action.payload){
                 return state;
             }

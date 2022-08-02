@@ -10,6 +10,7 @@ const AddTodo = ({ dispatch }) => {
         e.preventDefault();  
         setId( new Date().getTime().toString()) ;
         dispatch({type:"ADD",payload:{id:DateId,taskValue:inputVal}}); 
+        document.querySelector('input').value="";
     }
 
     function inputFun(e) {
@@ -18,9 +19,9 @@ const AddTodo = ({ dispatch }) => {
 
     return (
         <>
-        <form onSubmit={submitHandler}>
-            <input type="textarea" required onChange={inputFun}/>
-            <input type="submit"/>
+        <form id="todo-form" onSubmit={submitHandler}>
+            <input id="todo-input" type="textarea" required onChange={inputFun} value={inputVal}/>
+            <button type="submit">ADD</button>
         </form>
         </>
     )
