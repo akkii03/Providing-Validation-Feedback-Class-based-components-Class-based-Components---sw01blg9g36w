@@ -7,17 +7,17 @@ const Todo = ({ dispatch, state }) => {
           <ul>
             {state.map((item) => {
               return (
-                <li id={item.id} key={item.id}>
+                <div id={item.id} key={item.id} className="todo-title">
                   {item.taskValue}
                   <button
                     onClick={() =>
-                      dispatch({ type: "DELETE", payload:{id:item.id,taskValue:item.taskValue} })
+                      dispatch({ type: "DELETE",payload:{title:item.title,id:item.id} })
                     }
                     className="todo-delete"
                   >
                     DELETE
                   </button>
-                </li>
+                </div>
               );
             })}
           </ul>
