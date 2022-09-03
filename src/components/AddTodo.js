@@ -3,18 +3,25 @@ import React,{useState} from "react";
 
 const AddTodo = ({ dispatch }) => {
 
-    const [inputVal,setInputVal] =useState("");
+    const [taskArr,setTaskArr] =useState([]);
+    const [inputVal,setVal] = useState("");
     const [DateId,setId] = useState( new Date().getTime().toString());
 
     function submitHandler (e) {
         e.preventDefault();  
         setId( new Date().getTime().toString()) ;
-        dispatch({type:"ADD",payload:{title:inputVal,id:DateId}}); 
-        setInputVal("");
+        setTaskArr(
+            [...taskArr,
+                {id:DateId,title:inputVal}
+            ]
+        )
+        dispatch({type:"ADD",payload:{title:inputVal,id:DateId}});
+        setVal("");
     }
 
+
     function inputFun(e) {
-        setInputVal(e.target.value);
+        setVal(e.target.value);
     }
 
     return (

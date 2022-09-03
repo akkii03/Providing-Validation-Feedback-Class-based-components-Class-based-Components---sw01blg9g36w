@@ -1,16 +1,17 @@
 import React from "react";
 const Todo = ({ dispatch, state }) => {
 
+  console.log("state is ",state);
   return (
 
           <>
-            {state.map((item,id) => {
+            {state.map((item) => {
               
               return (
-                <div className="todo" key={id+item}> 
+                <div className="todo" key={item.id}> 
                 
                   <div id={item.id} className="todo-title">
-                  {item}
+                  {item.title}
                   <button
                     onClick={() =>
                       dispatch({ type: "DELETE",payload:{title:item.title,id:item.id} })
