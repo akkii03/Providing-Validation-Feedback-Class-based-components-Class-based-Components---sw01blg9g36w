@@ -1,10 +1,12 @@
 import React from "react";
 const Todo = ({ dispatch, state }) => {
   return (
-    <div className="todo">  
+
             {state.map((item) => {
               return (
-                <div id={item.id} key={item.id} className="todo-title">
+                <div className="todo"> 
+                
+                  <div id={item.id} key={item.id} className="todo-title">
                   {item}
                   <button
                     onClick={() =>
@@ -15,9 +17,10 @@ const Todo = ({ dispatch, state }) => {
                     DELETE
                   </button>
                 </div>
+                
+                </div>
               );
             })}
-    </div>
   );
 };
 
